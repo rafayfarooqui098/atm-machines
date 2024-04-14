@@ -15,7 +15,7 @@ if (pinanswer.pin === mypin) {
             name: "operation",
             message: "what do you have to do?",
             type: "list",
-            choices: ["withdraw", "cheak balance", "fast cash"],
+            choices: ["withdraw", "cheak balance",],
         },
     ]);
     if ((operationAns.operation = "withdraw")) {
@@ -26,11 +26,11 @@ if (pinanswer.pin === mypin) {
         mybalance -= amountAns.amount;
         console.log("your remaining balance is : " + mybalance);
     }
-    else if ((operationAns.amount = "cheak balance")) {
+    else if ((operationAns.operation = "cheak balance")) {
+        let mybalance = await inquirer.prompt([{
+                name: "amount", message: "your remaining balance is", type: "number"
+            }]);
         console.log("your balance is: " + mybalance);
-    }
-    else if (operationAns.amount = "fastcash") {
-        console.log("please select one amount: ", "1000", "2000", "5000", "10000");
     }
 }
 else {

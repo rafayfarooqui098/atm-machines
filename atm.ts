@@ -19,7 +19,7 @@ if (pinanswer.pin === mypin) {
       name: "operation",
       message: "what do you have to do?",
       type: "list",
-      choices: ["withdraw", "cheak balance","fast cash"],
+      choices: ["withdraw", "cheak balance", ],
     },
   ]);
 
@@ -30,15 +30,11 @@ if (pinanswer.pin === mypin) {
     // =, -=, +=
     mybalance -= amountAns.amount;
     console.log("your remaining balance is : " + mybalance);
-  } else if ((operationAns.amount = "cheak balance")) {
+  } else if ((operationAns.operation = "cheak balance")) {
+
     console.log("your balance is: " + mybalance);
-
-
-  } else if (operationAns.amount = "fastcash") {
-    console.log("please select one amount: " , "1000","2000","5000","10000")
   }
-
-
-} else {
+}
+ else {
   console.log("incoreect pin");
 }
