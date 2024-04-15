@@ -1,6 +1,6 @@
 {
   "name": "farooqui786-atm-machines",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "creating atm machine by the help of typescript,node and inquirer",
   "main": "atm.ts",
   "type": "module",
