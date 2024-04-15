@@ -9,30 +9,54 @@ let pinanswer = await inquirer.prompt([
     },
 ]);
 if (pinanswer.pin === mypin) {
-    console.log("corret PIn");
     let operationAns = await inquirer.prompt([
         {
-            name: "operation",
-            message: "what do you have to do?",
+            name: "accountType",
+            message: "select account type",
             type: "list",
-            choices: ["withdraw", "cheak balance",],
+            choices: ["current account", "saving account",],
         },
+        {
+            name: "transmethod",
+            message: "select transaction method",
+            type: "list",
+            choices: ["cash withdrawal", "fast cash"]
+        }
     ]);
-    if ((operationAns.operation = "withdraw")) {
-        let amountAns = await inquirer.prompt([
-            { name: "amount", message: "enter your amount", type: "number" },
+    if (operationAns.transmethod == "cash withdrawal") {
+        let cashwithdrawamount = await inquirer.prompt([
+            {
+                name: "withdrawal",
+                message: "enter your amount to withdraw",
+                type: "number"
+            },
         ]);
-        // =, -=, +=
-        mybalance -= amountAns.amount;
-        console.log("your remaining balance is : " + mybalance);
+        // 
+        if (mybalance >= cashwithdrawamount.withdrawal) {
+            mybalance -= cashwithdrawamount.withdrawal;
+            console.log(`your total balance is ,${mybalance}`);
+        }
+        else
+            (console.log("insufficient balance"));
     }
-    else if ((operationAns.operation = "cheak balance")) {
-        let mybalance = await inquirer.prompt([{
-                name: "amount", message: "your remaining balance is", type: "number"
-            }]);
-        console.log("your balance is: " + mybalance);
+    else {
+        let fastcashamount = await inquirer.prompt([
+            {
+                name: "fastcash",
+                message: "select amount you want to withdraw",
+                type: "list",
+                choices: [
+                    "1000",
+                    "2000",
+                    "5000",
+                ]
+            }
+        ]);
+        if (mybalance >= fastcashamount.fastcash) {
+            mybalance -= fastcashamount.fastcash;
+            console.log(`your balance is ,${mybalance}`);
+        }
+        else
+            (console.log(`insufficient balance`));
     }
-}
-else {
-    console.log("incoreect pin");
 }
