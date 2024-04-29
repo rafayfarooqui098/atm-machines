@@ -1,9 +1,11 @@
 {
   "name": "farooqui786-atm-machines",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "creating atm machine by the help of typescript,node and inquirer",
-  "main": "atm.ts",
+  "main": "atm.js",
   "type": "module",
+  "publishConfig": {"access": "public"},
+  "bin": "atm.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

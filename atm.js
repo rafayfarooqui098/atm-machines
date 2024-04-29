@@ -1,3 +1,4 @@
+#! /usr/bin/env node
 import inquirer from "inquirer";
 let mybalance = 70000; //dollars
 let mypin = 7861;
